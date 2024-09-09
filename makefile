@@ -5,18 +5,18 @@ LIB = lib/libmylibrary.a
 all: $(LIB) test
 
 # Rule to compile the library
-$(LIB): src/deque.o
+$(LIB): src/sll.o
 	mkdir -p lib
-	ar rcs $(LIB) src/deque.o
+	ar rcs $(LIB) src/sll.o
 
-# Rule to compile the object file from deque.c
-src/deque.o: src/deque.c include/deque.h
-	$(CC) $(CFLAGS) -c src/deque.c -o src/deque.o
+# Rule to compile the object file from sll.c
+src/sll.o: src/sll.c include/sll.h
+	$(CC) $(CFLAGS) -c src/sll.c -o src/sll.o
 
 # Rule to compile the test program
 test: $(LIB)
-	$(CC) test/test_deque.c -Iinclude -Llib -lmylibrary -o test/test_deque
+	$(CC) test/test_sll.c -Iinclude -Llib -lmylibrary -o test/test_sll
 
 # Clean rule to remove all generated files
 clean:
-	rm -f src/*.o lib/*.a test/test_deque
+	rm -f src/*.o lib/*.a test/test_sll

@@ -3,12 +3,12 @@
 
 typedef struct Node{
     int data;
-    Node* next;
+    struct Node* next;
 } Node;
 
 Node* create_node(int data);
 void insert_front(Node** head, int data);
-void insert_middle(Node** head, int data);
+void insert_middle(Node** head, int data, int pos);
 void insert_end(Node** head, int data);
 void delete_node(Node** head, int data);
 void print_LL(Node* head);
