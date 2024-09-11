@@ -5,18 +5,18 @@ LIB = lib/libmylibrary.a
 all: $(LIB) test
 
 # Rule to compile the library
-$(LIB): src/dll.o
+$(LIB): src/binary_tree.o
 	mkdir -p lib
-	ar rcs $(LIB) src/dll.o
+	ar rcs $(LIB) src/binary_tree.o
 
-# Rule to compile the object file from dll.c
-src/dll.o: src/dll.c include/dll.h
-	$(CC) $(CFLAGS) -c src/dll.c -o src/dll.o
+# Rule to compile the object file from binary_tree.c
+src/binary_tree.o: src/binary_tree.c include/binary_tree.h
+	$(CC) $(CFLAGS) -c src/binary_tree.c -o src/binary_tree.o
 
 # Rule to compile the test program
 test: $(LIB)
-	$(CC) test/test_dll.c -Iinclude -Llib -lmylibrary -o test/test_dll
+	$(CC) test/test_binary_tree.c -Iinclude -Llib -lmylibrary -o test/test_binary_tree
 
 # Clean rule to remove all generated files
 clean:
-	rm -f src/*.o lib/*.a test/test_dll
+	rm -f src/*.o lib/*.a test/test_binary_tree
