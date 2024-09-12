@@ -2,7 +2,7 @@
 #include "min_heap.h"
 
 int main() {
-    Heap *heap = create_min_heap(4);
+    MinHeap *heap = create_min_heap(4);
 
     insert_min_heap(heap, 30);
     insert_min_heap(heap, 20);
@@ -17,7 +17,7 @@ int main() {
 
     printf("Extracted: %d\n", extract_min(heap));
 
-    free_heap(heap);
+    free_min_heap(heap);
 
     return 0;
 }

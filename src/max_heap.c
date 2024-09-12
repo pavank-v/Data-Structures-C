@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "min_heap.h"
+#include "max_heap.h"
 
-MinHeap* create_min_heap(int capacity){
-    MinHeap* heap = (MinHeap*)malloc(sizeof(MinHeap));
+MaxHeap* create_max_heap(int capacity){
+    MaxHeap* heap = (MaxHeap*)malloc(sizeof(MaxHeap));
     if (!heap){
         printf("Memory allocation failed\n");
         return NULL;
@@ -18,7 +18,7 @@ MinHeap* create_min_heap(int capacity){
     return heap;
 }
 
-void resize_heap(MinHeap* heap){
+void resize_heap(MaxHeap* heap){
     heap->capacity *= 2;
     heap->arr = (int*)realloc(heap->arr, heap->capacity * sizeof(int));
     if (heap->arr == NULL){
@@ -26,10 +26,11 @@ void resize_heap(MinHeap* heap){
         exit(1);
     }
 }
-void heapify_up(MinHeap* heap, int index){
+
+void heapify_up(MaxHeap* heap, int index){
     int parent = (index - 1) / 2;
 
-    while (index > 0 && heap->arr[parent] > heap->arr[index]){
+    while (index > 0 && heap->arr[parent] < heap->arr[index]){
         int temp = heap->arr[parent];
         heap->arr[parent] = heap->arr[index];
         heap->arr[index] = temp;
@@ -38,7 +39,7 @@ void heapify_up(MinHeap* heap, int index){
         parent = (index - 1) / 2;
     }
 }
-void insert_min_heap(MinHeap* heap, int value){
+void insert_max_heap(MaxHeap* heap, int value){
     if (heap->size == heap->capacity){
         resize_heap(heap);
     }
@@ -47,27 +48,27 @@ void insert_min_heap(MinHeap* heap, int value){
     heapify_up(heap, heap->size - 1);
 }
 
-void heapify_down(MinHeap* heap, int index){
+void heapify_down(MaxHeap* heap, int index){
     int left = 2 * index + 1;
     int right = 2 * index + 2;
-    int smallest = index;
+    int largest = index;
 
-    if (left < heap->size && heap->arr[left] < heap->arr[smallest]){
-        smallest = left;
+    if (left < heap->size && heap->arr[left] > heap->arr[largest]){
+        largest = left;
     }
-    if (right < heap->size && heap->arr[right] < heap->arr[smallest]){
-        smallest = right;
+    if (right < heap->size && heap->arr[right] > heap->arr[largest]){
+        largest = right;
     }
 
-    if (smallest != index){
+    if (largest != index){
         int temp = heap->arr[index];
-        heap->arr[index] = heap->arr[smallest];
-        heap->arr[smallest] = temp;
-        heapify_down(heap, smallest);
+        heap->arr[index] = heap->arr[largest];
+        heap->arr[largest] = temp;
+        heapify_down(heap, largest);
     }
 }
 
-int extract_min(MinHeap* heap){
+int extract_max(MaxHeap* heap){
     if (heap->size == 0){
         printf("Heap is empty\n");
         return -1;
@@ -78,7 +79,7 @@ int extract_min(MinHeap* heap){
     return item;
 }
 
-void free_min_heap(MinHeap* heap){
+void free_max_heap(MaxHeap* heap){
     free(heap->arr);
     free(heap);
 }
