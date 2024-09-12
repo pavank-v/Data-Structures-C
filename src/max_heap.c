@@ -11,6 +11,7 @@ MaxHeap* create_max_heap(int capacity){
     heap->arr = (int*)malloc(capacity * sizeof(int));
     if (!heap->arr){
         printf("Memory allocation failed\n");
+        free(heap);
         return NULL;
     }
     heap->size = 0;
