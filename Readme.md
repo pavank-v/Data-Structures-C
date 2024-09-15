@@ -28,13 +28,13 @@ To get started with this repository, you'll need to have a C compiler installed 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/pavank1301/MyLibrary.git
+    git clone https://github.com/pavank1301/Data-Structures-C.git
     ```
 
 2. Navigate to the directory:
 
     ```bash
-    cd MyLibrary
+    cd Data-Structures-C
     ```
 
 ## Usage
