@@ -60,3 +60,8 @@ int main() {
     return 0;
 }
 ```
+
+## Compilation
+```bash
+    gcc main.c list_graph.c -o list_graph_program
+````

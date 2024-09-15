@@ -75,3 +75,9 @@ int main() {
     return 0;
 }
 ```
+
+
+## Compilation
+```bash
+    gcc main.c hashmap.c -o hashmap_program
+````

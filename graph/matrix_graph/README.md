@@ -60,3 +60,8 @@ int main() {
     return 0;
 }
 ```
+
+## Compilation
+```bash
+    gcc main.c matrix_graph.c -o matrix_graph_program
+````
