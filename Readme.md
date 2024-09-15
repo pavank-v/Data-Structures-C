@@ -32,21 +32,9 @@ To get started with this repository, you'll need to have a C compiler installed 
 2. Navigate to the directory:
 
     ```bash
-    cd repository-name
+    cd MyLibrary
     ```
-
-3. Compile the code:
-
-    ```bash
-    gcc main.c binary_tree.c linked_list.c queue.c stack.c heap.c -o data_structures
-    ```
-
-4. Run the program:
-
-    ```bash
-    ./data_structures
-    ```
-
+    
 ## Usage
 
 Each implementation is in its respective file:
