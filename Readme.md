@@ -5,10 +5,12 @@ Welcome to the Data Structures Library in C! This repository contains implementa
 ## Features
 
 - **Linked List**: Single Linked List, Doubly Linked List
-- **Queue**: Circular Queue
+- **Queue**: Circular Queue, Double Ended Queue
 - **Stack**: Basic Stack operations
 - **Binary Tree**: Basic Binary Tree operations including insertion, deletion, traversal
-- **Heap**: Min-Heap
+- **Heap**: Min-Heap, Max_Heap
+- **Hashmap**: Supports Different Key-Value Types
+- **Graph**: Adjacency Matrix, Adjacency List
 
 ## Table of Contents
 
@@ -34,7 +36,7 @@ To get started with this repository, you'll need to have a C compiler installed 
     ```bash
     cd MyLibrary
     ```
-    
+
 ## Usage
 
 Each implementation is in its respective file:
